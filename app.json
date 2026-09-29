@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "niah-biodiversity-app",
+    "name": "Niah Ground-Truth",
     "slug": "niah-biodiversity-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,16 +8,23 @@
     "scheme": "niahbiodiversityapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow Niah Ground-Truth to use the camera to photograph plant specimens and scan QR tags.",
+        "NSLocationWhenInUseUsageDescription": "Allow Niah Ground-Truth to record GPS coordinates for field observations."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#F0F4F1",
+        "foregroundImage": "./assets/images/android-icon-foreground.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
     },
     "web": {
       "output": "static",
@@ -28,15 +35,27 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#2E5B3D",
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 120
         }
-      ]
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Niah Ground-Truth to capture plant photos and scan QR tags."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Niah Ground-Truth to record GPS coordinates for field observations."
+        }
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
+      "typedRoutes": true
     }
   }
 }
